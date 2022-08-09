@@ -15,7 +15,7 @@
 }
 
 :root {
-  --accent: #ce2b37;
+  --accent: #ce982b;
   --border-flag-repeating: repeating-linear-gradient(
       to right,
       #009246 0 8%,
@@ -76,7 +76,7 @@ nav {
   border-image: var(--border-flag);
   display: flex;
   font-family: "Edifice-Thin";
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 300;
   height: 100px;
   justify-content: center;
