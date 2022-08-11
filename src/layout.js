@@ -2,6 +2,14 @@ import generateContentHome from "./home.js";
 import generateContentMenu from "./menu.js";
 import generateContentContact from "./contact.js";
 
+const linkNames = ["Home", "Menu", "Contact"];
+const linkInfo = [
+  ["https://github.com/arronjohnson", "fa-brands fa-github"],
+  ["https://www.linkedin.com/in/arronjohnson-uk/", "fa-brands fa-linkedin"],
+  ["http://arronjohnson.me/", "fa-solid fa-earth-europe"],
+  ["http://arronjohnson.me/", "fa-solid fa-envelope"],
+];
+
 export default function generateLayout() {
   generateNav();
   generateMain();
@@ -16,7 +24,6 @@ function toggleActiveLink(el) {
 }
 
 function generateNav() {
-  const linkNames = ["Home", "Menu", "Contact"];
   const navList = document.createElement("ul");
 
   for (let i = 0; i < linkNames.length; i++) {
@@ -70,13 +77,6 @@ function resetContent() {
 }
 
 function generateFooter() {
-  const linkInfo = [
-    ["https://github.com/arronjohnson", "fa-brands fa-github"],
-    ["https://www.linkedin.com/in/arronjohnson-uk/", "fa-brands fa-linkedin"],
-    ["http://arronjohnson.me/", "fa-solid fa-earth-europe"],
-    ["http://arronjohnson.me/", "fa-solid fa-envelope"],
-  ];
-
   const footerIcons = document.createElement("div");
   footerIcons.className = "footer-icons";
 
