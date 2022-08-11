@@ -1,14 +1,53 @@
-export function generateNav() {
+import generateContentHome from "./home.js";
+import generateContentMenu from "./menu.js";
+import generateContentContact from "./contact.js";
+
+export default function generateLayout() {
+  generateNav();
+  generateMain();
+  generateFooter();
+  generateContentHome();
+}
+
+function toggleActiveLink(el) {
+  const links = document.querySelectorAll("nav li");
+  links.forEach((link) => link.removeAttribute("class"));
+  el.className = "active";
+}
+
+function generateNav() {
   const linkNames = ["Home", "Menu", "Contact"];
   const navList = document.createElement("ul");
 
   for (let i = 0; i < linkNames.length; i++) {
     const link = document.createElement("a");
+    const linkText = linkNames[i];
     link.setAttribute("href", "#");
-    link.textContent = linkNames[i];
+    link.textContent = linkText;
 
     const navItem = document.createElement("li");
     navItem.appendChild(link);
+
+    // set Home to the default active tab
+    if (linkText === "Home") {
+      navItem.className = "active";
+    }
+
+    navItem.addEventListener("click", () => {
+      resetContent();
+      toggleActiveLink(navItem);
+      switch (linkText) {
+        case "Menu":
+          generateContentMenu();
+          break;
+        case "Contact":
+          generateContentContact();
+          break;
+        default:
+          generateContentHome();
+      }
+    });
+
     navList.appendChild(navItem);
   }
 
@@ -19,18 +58,18 @@ export function generateNav() {
   content.appendChild(nav);
 }
 
-export function generateMain() {
+function generateMain() {
   const main = document.createElement("main");
   const content = document.getElementById("content");
   content.appendChild(main);
 }
 
-export function resetContent() {
+function resetContent() {
   const main = document.querySelector("main");
   main.innerHTML = "";
 }
 
-export function generateFooter() {
+function generateFooter() {
   const linkInfo = [
     ["https://github.com/arronjohnson", "fa-brands fa-github"],
     ["https://www.linkedin.com/in/arronjohnson-uk/", "fa-brands fa-linkedin"],

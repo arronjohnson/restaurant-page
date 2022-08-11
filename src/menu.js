@@ -4,9 +4,14 @@ export default function generateContentMenu() {
   header.textContent = "Francescas";
 
   const desc = document.createElement("h2");
+  desc.className = "desc menu";
   desc.textContent = "Menu";
 
+  const menuDiv = document.createElement("div");
+  menuDiv.className = "menu";
+  menuDiv.appendChild(header);
+  menuDiv.appendChild(desc);
+
   const main = document.querySelector("main");
-  main.appendChild(header);
-  main.appendChild(desc);
+  main.appendChild(menuDiv);
 }

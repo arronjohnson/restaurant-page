@@ -92,8 +92,10 @@ ul {
   text-transform: uppercase;
 }
 
-nav li:hover {
+nav li:hover,
+nav li.active {
   border-bottom: 2px solid var(--accent);
+  cursor: pointer;
   padding-bottom: 4px;
 }
 
