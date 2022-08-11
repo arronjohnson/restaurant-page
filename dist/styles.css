@@ -126,7 +126,7 @@ h2.desc {
 div.menu {
   background-color: #fff;
   color: #000;
-  height: calc(100vh - 200px - 128px);
+  height: calc(100vh - 328px);
   overflow-y: scroll;
   padding: 32px;
   width: 100%;
@@ -198,4 +198,31 @@ hr {
 
 .footer-text {
   margin: 4px 0 0;
+}
+
+@media (max-width: 600px) {
+  nav {
+    font-size: 1.3rem;
+  }
+
+  main {
+    max-width: unset;
+    padding: 16px;
+  }
+
+  h1.logo {
+    font-size: 5rem;
+  }
+
+  h2.desc {
+    font-size: 1.3rem;
+  }
+
+  div.menu {
+    height: calc(100vh - 232px);
+  }
+
+  .footer {
+    font-size: 1.1rem;
+  }
 }
