@@ -113,7 +113,7 @@ h1.logo {
 }
 
 h2.desc,
-h2.location {
+h2.addendum {
   font-family: "Edifice-Thin";
   font-size: 1.5rem;
   margin: 0;
@@ -168,6 +168,14 @@ hr {
   justify-self: end;
 }
 
+.contact {
+  text-align: left;
+}
+
+h2.addendum {
+  margin-top: 64px;
+}
+
 .footer {
   background-color: rgba(0, 0, 0, 0.5);
   border-image: var(--border-flag);
@@ -220,6 +228,10 @@ hr {
 
   div.menu {
     height: calc(100vh - 232px);
+  }
+
+  .contact {
+    text-align: center;
   }
 
   .footer {
