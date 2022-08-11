@@ -131,6 +131,12 @@ h2.desc {
   text-align: center;
 }
 
+.footer-icons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
 .footer-icons a {
   font-size: 1.8em;
   user-select: none;
