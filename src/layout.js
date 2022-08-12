@@ -23,6 +23,21 @@ function toggleActiveLink(el) {
   el.className = "active";
 }
 
+function navOnClick(navItem, linkText) {
+  resetContent();
+  toggleActiveLink(navItem);
+  switch (linkText) {
+    case "Menu":
+      generateContentMenu();
+      break;
+    case "Contact":
+      generateContentContact();
+      break;
+    default:
+      generateContentHome();
+  }
+}
+
 function generateNav() {
   const navList = document.createElement("ul");
 
@@ -34,41 +49,27 @@ function generateNav() {
 
     const navItem = document.createElement("li");
     navItem.appendChild(link);
+    navItem.addEventListener("click", () => navOnClick(navItem, linkText));
 
     // set Home to the default active tab
     if (linkText === "Home") {
       navItem.className = "active";
     }
 
-    navItem.addEventListener("click", () => {
-      resetContent();
-      toggleActiveLink(navItem);
-      switch (linkText) {
-        case "Menu":
-          generateContentMenu();
-          break;
-        case "Contact":
-          generateContentContact();
-          break;
-        default:
-          generateContentHome();
-      }
-    });
-
     navList.appendChild(navItem);
   }
 
   const nav = document.createElement("nav");
   nav.appendChild(navList);
-
-  const content = document.getElementById("content");
-  content.appendChild(nav);
+  document.body.appendChild(nav);
 }
 
 function generateMain() {
   const main = document.createElement("main");
-  const content = document.getElementById("content");
+  const content = document.createElement("div");
+  content.id = "content";
   content.appendChild(main);
+  document.body.appendChild(content);
 }
 
 function resetContent() {
@@ -100,7 +101,5 @@ function generateFooter() {
   footer.className = "footer";
   footer.appendChild(footerIcons);
   footer.appendChild(footerText);
-
-  const content = document.getElementById("content");
-  content.appendChild(footer);
+  document.body.appendChild(footer);
 }
